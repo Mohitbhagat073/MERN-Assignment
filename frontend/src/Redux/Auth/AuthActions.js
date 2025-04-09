@@ -21,7 +21,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:8002/user/login", userData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/logi`n, userData);
       console.log(response,"response.data);")
       return response;
     } catch (err) {
