@@ -1,11 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 export const signupUser = createAsyncThunk(
   "auth/RegisterUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:8002/user/signup", userData);
+      console.log(import.meta.env.VITE_API_BASE_URL,"import.meta.env.VITE_API_BASE_URL")
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/signup`, userData);
       console.log(response,"response.data);")
       return response;
     } catch (err) {
